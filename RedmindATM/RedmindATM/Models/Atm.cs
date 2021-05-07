@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RedmindATM
+namespace RedmindATM.Models
 {
     public class Atm
     {
@@ -40,9 +40,15 @@ namespace RedmindATM
                         numOfOneHundreds++;
                         amount -= 100;
                         break;
+                    default:
+                        ThousandAmount += numOfThousands;
+                        FiveHundredAmount += numOfFiveHundreds;
+                        OneHundredAmount += numOfOneHundreds;
+                        return false;
                 }
             }
-            Console.WriteLine($"Thousands: {numOfThousands}, Five hundreds: {numOfFiveHundreds}, One hundreds: {numOfOneHundreds}, Amount left: {amount}");
+
+            Console.WriteLine($"Thousands: {numOfThousands}, Five hundreds: {numOfFiveHundreds}, One hundreds: {numOfOneHundreds}, Atm amount left: {TotalAmount}");
             return true;
         }
     }
